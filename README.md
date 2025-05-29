@@ -5,4 +5,4 @@ This repository contains codes associated with paper entitled "A single-cell tra
 
 For scRNA-seq data and Visium HD data processing, you can find the codes in this repository. Details of lung function prediction model by scPIT are available at: [https://github.com/Yu-Lab-Genomics/scPIT].
 
-The raw sequence data of scRNA-seq have been deposited to Genome Sequence Archive (GSA) in the National Genomics Data Center, China National Center for Bioinformation/Beijing Institute of Genomics, Chinese Academy of Sciences under accession code HRA010782. The raw sequence data of Visium HD have been also deposited to GSA under accession code HRA010949.
+The raw sequence data of scRNA-seq have been deposited to Genome Sequence Archive (GSA) in the National Genomics Data Center, China National Center for Bioinformation/Beijing Institute of Genomics, Chinese Academy of Sciences under accession code [HRA010782](https://ngdc.cncb.ac.cn/search/specific?db=hra&q=HRA010782). The raw sequence data of Visium HD have been also deposited to GSA under accession code [HRA010949](https://ngdc.cncb.ac.cn/search/specific?db=hra&q=HRA010949).
