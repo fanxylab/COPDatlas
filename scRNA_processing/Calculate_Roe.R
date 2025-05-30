@@ -51,6 +51,6 @@ split = data.frame(celltype = colnames(startrac.dist), class = c(rep("Epithelial
                                                                  rep("Endothelial", 5),rep("Immune", 20)))
 split$class = factor(split$class, levels = c("Epithelial","Mesenchymal","Endothelial","Immune"))
 
-#Draw heatmap (Fig. 2a)
+#Draw heatmap
 Heatmap(startrac.dist, name = "Ro/e", col = colorRamp2(c(min(startrac.dist), 1, max(startrac.dist)), c('#5A8FCA','#F2F2F0','#E31A1C')  ),
         cluster_columns = F, cluster_rows = F, border = T, row_names_side = "left",column_split = split$class )
