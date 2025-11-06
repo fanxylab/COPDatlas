@@ -5,7 +5,7 @@ library(tidyverse)
 
 #load data from Seurat object and clinical information
 COPD = readRDS("processed_data_R/COPD_celltype_old_all_counts.rds")
-meta = read.csv("./tables/meta101.csv", row.names = 1, check.names = F)
+meta = read.csv("./tables/COPD_meta101.csv", row.names = 1, check.names = F)
 
 #calculate pseudobulk gene expression
 pseudobulk = AggregateExpression(COPD, assays = "RNA", return.seurat = T, group.by = c("celltype","sample") )
@@ -34,7 +34,7 @@ pseudobulk_celltype = AggregateExpression(pseudobulk, assays = "RNA", return.seu
 exp_type = GetAssayData(pseudobulk_celltype, assay = "RNA", slot = "data")
 
 #filter out genes expressed in over 20% of cells for each cell type
-COPD = readRDS("/datf/mazhuo/jupyter_notebook/COPD/processed_data_R/COPD_celltype_counts_0808_v3.rds")
+COPD = readRDS("/datf/mazhuo/jupyter_notebook/COPD/processed_data_R/COPD_celltype.rds")
 Idents(COPD) = COPD@meta.data$celltype
 genes_select_FEV1 = list()
 for (celltype in unique(COPD@meta.data$celltype)) {
