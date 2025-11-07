@@ -1,4 +1,4 @@
-# A single-cell transcriptional atlas of lung parenchyma in chronic obstructive pulmonary disease
+# A single-cell transcriptional atlas of lung parenchyma in smoking-induced chronic obstructive pulmonary disease
 ## Overview
 Here we constructed the largest single-cell transcriptome atlas of lung parenchyma from 101 individuals spanning from healthy controls to different COPD stages, coupled with comprehensive clinical information. We also provided an interactive website for more researchers to explore our atlas [https://www.copdatlas.com/]. Other information can be found in our paper entitled "A single-cell transcriptional atlas of lung parenchyma in chronic obstructive pulmonary disease". 
 
