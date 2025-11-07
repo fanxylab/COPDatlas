@@ -8,11 +8,6 @@ import loompy as lp
 COPD = sc.read("/datf/mazhuo/jupyter_notebook/COPD/processed_data_py/COPD_newdata_0808_celltype.h5ad")
 COPD.obs["celltype"] = COPD.obs["celltype"].str.replace(' ', '_')
 
-celltype = ['Mature AT1','AT2','TRB Secretory','PreTB Secretory','Basal','Goblet','Ciliated',
-            'Adventitial fibroblast','Alveolar fibroblast','Myofibroblast','Pericyte','ASM','VSM',
-            'Mesothelial','Aerocyte','gCap','Arterial','Venous','B','Plasma','CD4+ T','NK','cDC2',
-            'Classical monocyte','Non-classical monocyte','Alveolar macrophage',
-            'Monocyte-derived macrophage','Interstitial macrophage','Mast','Neutrophil']
 
 #load DEGs
 DEG_HCHS = pd.read_csv("/datf/mazhuo/jupyter_notebook/COPD/tables/COPD_DEG_wilcox_HCHS_filter.csv", index_col=0)
@@ -28,7 +23,7 @@ HSG12 = COPD[COPD.obs["Group"].isin(["HS","Mild COPD"])].copy()
 G1234 = COPD[COPD.obs["Group"].isin(["Mild COPD","Severe COPD"])].copy()
 
 #output loom files
-for cell in ["Immature_AT1","Mature_AT1","AT2","TRB_Secretory","PreTB_Secretory","Basal","Goblet","Ciliated","PNEC",
+for cell in ["Immature_AT1","AT1","AT2","TRB_Secretory","PreTB_Secretory","Basal","Goblet","Ciliated","PNEC",
                  "Adventitial_fibroblast","Alveolar_fibroblast","Myofibroblast","Fibromyocyte","Pericyte","ASM",
                  "VSM","Mesothelial","Lymphatic","Aerocyte","gCap","Arterial","Venous","B","Plasma","Treg","CD4+_T",
                  "CD8+_T","Proliferating_T","NKT","NK","Basophil","cDC1","cDC2","Migratory_DC","pDC","Classical_monocyte","Non-classical_monocyte",
