@@ -6,7 +6,7 @@ library(ComplexHeatmap)
 library(circlize)
 
 COPD = readRDS("./processed_data_R/COPD_celltype.rds")
-preTB_meta = read.csv("./tables/preTB_meta.csv", row.names = 1, check.names = FALSE)
+preTB_meta = read.csv("./tables/preTB_meta_umap.csv", row.names = 1, check.names = FALSE)
 preTB = subset(COPD, subset = celltype %in% c("AT1","Immature AT1","TRB Secretory","AT2",
                                             "PreTB Secretory") )
 preTB@meta.data = preTB_meta
