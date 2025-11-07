@@ -73,44 +73,44 @@ DEG_wilcox_G1234 = DEG_wilcox_G1234[which(DEG_wilcox_G1234$p_val_adj < 0.05 &
 write.csv(DEG_wilcox_G1234, file = "./tables/COPD_DEG_wilcox_G1234_epi_filter.csv" )
 
 
-DEG_HCHS_num = DEG_wilcox_HCHS[which(DEG_wilcox_HCHS$avg_log2FC < 0 ),]
-DEG_HCHS_num = as.data.frame(table(DEG_HCHS_num$celltype))
-colnames(DEG_HCHS_num) = c("celltype","genenum")
-DEG_HCHS_num$group = "Pre-change"
+up_HCHS_num = DEG_wilcox_HCHS[which(DEG_wilcox_HCHS$avg_log2FC < 0 ),]
+up_HCHS_num = as.data.frame(table(up_HCHS_num$celltype))
+colnames(up_HCHS_num) = c("celltype","genenum")
+up_HCHS_num$group = "Pre-change"
 
-DEG_HSG12_num = DEG_wilcox_HSG12[which(DEG_wilcox_HSG12$avg_log2FC < 0 ),]
-DEG_HSG12_num = as.data.frame(table(DEG_HSG12_num$celltype))
-colnames(DEG_HSG12_num) = c("celltype","genenum")
-DEG_HSG12_num$group = "Early change"
+up_HSG12_num = DEG_wilcox_HSG12[which(DEG_wilcox_HSG12$avg_log2FC < 0 ),]
+up_HSG12_num = as.data.frame(table(up_HSG12_num$celltype))
+colnames(up_HSG12_num) = c("celltype","genenum")
+up_HSG12_num$group = "Early change"
 
-DEG_G1234_num = DEG_wilcox_G1234[which(DEG_wilcox_G1234$avg_log2FC < 0 ),]
-DEG_G1234_num = as.data.frame(table(DEG_G1234_num$celltype))
-colnames(DEG_G1234_num) = c("celltype","genenum")
-DEG_G1234_num$group = "Late change"
+up_G1234_num = DEG_wilcox_G1234[which(DEG_wilcox_G1234$avg_log2FC < 0 ),]
+up_G1234_num = as.data.frame(table(up_G1234_num$celltype))
+colnames(up_G1234_num) = c("celltype","genenum")
+up_G1234_num$group = "Late change"
 
-DEG_group_up = rbind(DEG_HCHS_num, DEG_HSG12_num, DEG_G1234_num)
+DEG_group_up = rbind(up_HCHS_num, up_HSG12_num, up_G1234_num)
 DEG_group_up$group = factor(DEG_group_up$group, levels = c("Pre-change","Early change","Late change") )
 DEG_up_num = aggregate(genenum ~ celltype, data = DEG_group_up, sum)
 DEG_up_num = setNames(DEG_up_num$genenum,DEG_up_num$celltype)
 DEG_group_up_num = aggregate(genenum ~ group, data = DEG_group_up, sum)
 DEG_group_up_num = setNames(DEG_group_up_num$genenum,DEG_group_up_num$group)
 
-DEG_HCHS_num = DEG_wilcox_HCHS[which(DEG_wilcox_HCHS$avg_log2FC > 0 ),]
-DEG_HCHS_num = as.data.frame(table(DEG_HCHS_num$celltype))
-colnames(DEG_HCHS_num) = c("celltype","genenum")
-DEG_HCHS_num$group = "Pre-change"
+down_HCHS_num = DEG_wilcox_HCHS[which(DEG_wilcox_HCHS$avg_log2FC > 0 ),]
+down_HCHS_num = as.data.frame(table(down_HCHS_num$celltype))
+colnames(down_HCHS_num) = c("celltype","genenum")
+down_HCHS_num$group = "Pre-change"
 
-DEG_HSG12_num = DEG_wilcox_HSG12[which(DEG_wilcox_HSG12$avg_log2FC > 0 ),]
-DEG_HSG12_num = as.data.frame(table(DEG_HSG12_num$celltype))
-colnames(DEG_HSG12_num) = c("celltype","genenum")
-DEG_HSG12_num$group = "Early change"
+down_HSG12_num = DEG_wilcox_HSG12[which(DEG_wilcox_HSG12$avg_log2FC > 0 ),]
+down_HSG12_num = as.data.frame(table(down_HSG12_num$celltype))
+colnames(down_HSG12_num) = c("celltype","genenum")
+down_HSG12_num$group = "Early change"
 
-DEG_G1234_num = DEG_wilcox_G1234[which(DEG_wilcox_G1234$avg_log2FC > 0 ),]
-DEG_G1234_num = as.data.frame(table(DEG_G1234_num$celltype))
-colnames(DEG_G1234_num) = c("celltype","genenum")
-DEG_G1234_num$group = "Late change"
+down_G1234_num = DEG_wilcox_G1234[which(DEG_wilcox_G1234$avg_log2FC > 0 ),]
+down_G1234_num = as.data.frame(table(down_G1234_num$celltype))
+colnames(down_G1234_num) = c("celltype","genenum")
+down_G1234_num$group = "Late change"
 
-DEG_group_down = rbind(DEG_HCHS_num, DEG_HSG12_num, DEG_G1234_num)
+DEG_group_down = rbind(down_HCHS_num, down_HSG12_num, down_G1234_num)
 DEG_group_down$group = factor(DEG_group_down$group, levels = c("Pre-change","Early change","Late change"))
 DEG_down_num = aggregate(genenum ~ celltype, data = DEG_group_down, sum)
 DEG_down_num = setNames(DEG_down_num$genenum,DEG_down_num$celltype)
